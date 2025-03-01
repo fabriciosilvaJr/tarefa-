@@ -30,6 +30,39 @@
         </table>
     </div>
 
- 
+    <script>
+        $(document).ready(function () {
+            let taskCount = 0;
+
+            $("#addTask").click(function () {
+                let taskText = $("#taskInput").val().trim();
+                if (taskText !== "") {
+                    taskCount++;
+                    let newRow = `
+                        <tr>
+                            <td>${taskCount}</td>
+                            <td>${taskText}</td>
+                            <td><span class="badge bg-warning text-dark">Pendente</span></td>
+                            <td>
+                                <button class="btn btn-success btn-sm completeTask">✔</button>
+                                <button class="btn btn-danger btn-sm removeTask">✖</button>
+                            </td>
+                        </tr>`;
+                    $("#taskTableBody").append(newRow);
+                    $("#taskInput").val(""); 
+                }
+            });
+
+     
+            $(document).on("click", ".completeTask", function () {
+                $(this).closest("tr").find("td:eq(2) span").removeClass("bg-warning text-dark").addClass("bg-success text-white").text("Concluído");
+            });
+
+        
+            $(document).on("click", ".removeTask", function () {
+                $(this).closest("tr").remove();
+            });
+        });
+    </script>
 </body>
 </html>
