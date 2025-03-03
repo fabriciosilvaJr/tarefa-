@@ -1,4 +1,11 @@
 {
+  "users": [
+    {
+      "id": "1",
+      "username": "user@test.com",
+      "password": "123456"
+    }
+  ],
   "tasks": [
     {
       "text": "Estudar php",
@@ -14,6 +21,11 @@
       "id": "eb5f",
       "text": "Desafio programação web",
       "status": "Pendente"
+    },
+    {
+      "text": "leitura",
+      "status": "Pendente",
+      "id": "2759"
     }
   ]
 }
