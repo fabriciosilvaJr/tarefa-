@@ -81,7 +81,7 @@
 
             function carregarTarefas() {
                 $.ajax({
-                    url: "http://localhost:3000/tasks",
+                    url: "https://api-tarefas-4wjs.onrender.com/tasks",
                     type: "GET",
                     success: function (tasks) {
                         $("#taskTableBody").empty();
@@ -110,7 +110,7 @@
                 let taskText = $("#taskInput").val().trim();
                 if (taskText !== "") {
                     $.ajax({
-                        url: "http://localhost:3000/tasks",
+                        url: "https://api-tarefas-4wjs.onrender.com/tasks",
                         type: "POST",
                         contentType: "application/json",
                         data: JSON.stringify({ text: taskText, status: "Pendente" }),
@@ -130,7 +130,7 @@
                 let taskId = row.data("id");
 
                 $.ajax({
-                    url: `http://localhost:3000/tasks/${taskId}`,
+                    url: `https://api-tarefas-4wjs.onrender.com/tasks/${taskId}`,
                     type: "PATCH",
                     contentType: "application/json",
                     data: JSON.stringify({ status: "Concluído" }),
@@ -150,7 +150,7 @@
                 let taskId = row.data("id");
 
                 $.ajax({
-                    url: `http://localhost:3000/tasks/${taskId}`,
+                    url: `https://api-tarefas-4wjs.onrender.com/tasks/${taskId}`,
                     type: "DELETE",
                     success: function () {
                         row.remove();
@@ -182,7 +182,7 @@
 
                 if (newText !== "") {
                     $.ajax({
-                        url: `http://localhost:3000/tasks/${taskId}`,
+                        url: `https://api-tarefas-4wjs.onrender.com/tasks/${taskId}`,
                         type: "PUT",
                         contentType: "application/json",
                         data: JSON.stringify({ text: newText, status: newStatus }),
